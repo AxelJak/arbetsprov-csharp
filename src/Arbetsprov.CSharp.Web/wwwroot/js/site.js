@@ -5,10 +5,10 @@ const weatherContainer = document.getElementById('weather-data-container');
 weatherForm?.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const longitude = document.getElementsById('longitud').value;
-  const latitude = document.getElementsById('longitud').value;
+  const longitude = document.getElementById('longitud').value;
+  const latitude = document.getElementById('longitud').value;
 
-  fetch('WeatherApi/GetWeatherForecast', {
+  fetch('/WeatherApi/GetWeatherForecast', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,5 +18,6 @@ weatherForm?.addEventListener('submit', (e) => {
   .then((response) => response.json())
   .then((data) => {
     alert(data)
-  })
+  });
+
 });

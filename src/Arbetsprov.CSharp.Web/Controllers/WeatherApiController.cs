@@ -3,7 +3,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Globalization;
-using Newtonsoft.Json;
 using Arbetsprov.CSharp.Web.Models;
 
 namespace Arbetsprov.CSharp.Web.Controllers
@@ -30,8 +29,10 @@ namespace Arbetsprov.CSharp.Web.Controllers
             } catch(Exception e){
                 Console.WriteLine(e);
             }
+            var temp = weatherData.properties.timeseries[0].data.instant.details.air_temperature;
+            string airTemp = temp.ToString();
             
-            return Json(weatherData);        
+            return Json(airTemp);        
         }
     }
 
