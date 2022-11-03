@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Net.Http;
 using Arbetsprov.CSharp.Web.Models;
 
-public class Weatherservice : IWeatherService {
+public class WeatherService : IWeatherService {
 
     static HttpClient client = new HttpClient();
 
