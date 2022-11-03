@@ -69,3 +69,29 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+/* Showing weather
+-------------------------------------------------- */
+
+#weather-data-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  margin: 3rem auto;
+  width: 70%;
+  border-radius: 5%;
+  box-shadow: 16px 15px 33px -10px rgba(0,0,0,0.59);
+}
+
+.weather-details{
+  font-weight: 600;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+#weatherCondition{
+  width: 50%;
+}

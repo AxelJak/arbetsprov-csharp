@@ -5,21 +5,28 @@
 <div>
     <h1 class="display-4">Välkommen!</h1>
 
-    <p>Nedan finns ett enkelt formulär med en knapp för att trigga datahämtningen.</p>
-    
-    <p>Scripten finns i filen site.js under wwwroot.</p>
+    <p>Klicka på knappen för att få vädret från kordinaterna!</p>
     
     <form id="weather-form">
         <div class="form-group">
             <label for="latitude">Latitud</label>
-            <input type="text" class="form-control" id="latitud" placeholder="Latitud" value="63.8258">
+            <input type="text" class="form-control" id="latitude" placeholder="Latitud" value="63.8258">
         </div>
         <div class="form-group">
             <label for="longitude">Longitud</label>
-            <input type="text" class="form-control" id="longitud" placeholder="Longitud" value="20.2630">
+            <input type="text" class="form-control" id="longitude" placeholder="Longitud" value="20.2630">
         </div>
         <button type="submit" class="btn btn-primary">Hämta väderdata</button>
     </form>
 
-    <div id="weather-data-container"></div>
+    <div id="weather-data-container">
+        <div class="weather-details">
+            <h2 id="air-temp">22 ºC</h2>
+            <h2 id="air-pressure"> 1000 hPa</h2>
+        </div>
+        <div class="weather-details">
+            <h2 id="humidity">99 %</h2>
+            <h2 id="symbol">Sunny</h2>
+        </div>
+    </div>
 </div>

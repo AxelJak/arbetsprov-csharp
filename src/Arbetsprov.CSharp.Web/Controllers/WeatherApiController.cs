@@ -16,10 +16,8 @@ namespace Arbetsprov.CSharp.Web.Controllers
 
             string latitude = coords.latitude;
             string longitude = coords.longitude;
-           
 
             WeatherService service = new WeatherService();
-            System.Console.WriteLine("Latitude api {0}",coords.latitude);
 
             WeatherData weatherData = null;
             try {
@@ -29,12 +27,28 @@ namespace Arbetsprov.CSharp.Web.Controllers
                 Console.WriteLine(e);
             }
             var temp = weatherData.properties.timeseries[0].data.instant.details.air_temperature;
+            var press = weatherData.properties.timeseries[0].data.instant.details.air_pressure_at_sea_level;
+            var hum = weatherData.properties.timeseries[0].data.instant.details.relative_humidity;
+            string code = weatherData.properties.timeseries[0].data.next_1_hours.summary.symbol_code;
             string airTemp = temp.ToString();
-            
-            return Json(airTemp);        
+            string airPressure = press.ToString();
+            string humidity = hum.ToString();
+
+            Weather weather = new Weather{
+                airTemp = airTemp,
+                airPressure = airPressure,
+                humidity = humidity,
+                symbol_code = code};
+            return Json(weather);        
         }
     }
 
+    public class Weather{
+        public string airTemp {get; set;}
+        public string airPressure {get; set;}
+        public string humidity {get; set;}
+        public string symbol_code {get; set;}
+    }
     public class Coordinates{
         public string latitude {get; set;}
         public string longitude {get; set;}
