@@ -14,13 +14,12 @@ namespace Arbetsprov.CSharp.Web.Controllers
             CancellationTokenSource source = new CancellationTokenSource();
             CancellationToken token = source.Token;
 
-            NumberFormatInfo provider = new NumberFormatInfo();
-            provider.NumberDecimalSeparator = ",";
-
-            double latitude = Convert.ToDouble(coords.latitud, provider);
-            double longitude = Convert.ToDouble(coords.longitud, provider);
+            string latitude = coords.latitude;
+            string longitude = coords.longitude;
+           
 
             WeatherService service = new WeatherService();
+            System.Console.WriteLine("Latitude api {0}",coords.latitude);
 
             WeatherData weatherData = null;
             try {
@@ -37,7 +36,7 @@ namespace Arbetsprov.CSharp.Web.Controllers
     }
 
     public class Coordinates{
-        public string latitud {get; set;}
-        public string longitud {get; set;}
+        public string latitude {get; set;}
+        public string longitude {get; set;}
     }
 }

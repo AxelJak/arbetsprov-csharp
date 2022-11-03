@@ -10,9 +10,10 @@ public class WeatherService : IWeatherService {
 
     static HttpClient client = new HttpClient();
 
-    public async Task<WeatherData> GetWeatherDataAsync(double latitude, double longitude, CancellationToken cancellationToken){
+    public async Task<WeatherData> GetWeatherDataAsync(string latitude, string longitude, CancellationToken cancellationToken){
 
         string apiUrl = $"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={latitude}&lon={longitude}";
+        System.Console.WriteLine("Url {0}",apiUrl);
 
         var productName = new ProductInfoHeaderValue("WeatherWebsite","1.0");
         var commentName = new ProductInfoHeaderValue("(+https://github.com/xlent-norr/arbetsprov-csharp)");
@@ -24,6 +25,7 @@ public class WeatherService : IWeatherService {
         HttpResponseMessage response = await client.GetAsync(apiUrl);
         var data = "";
         if (response.IsSuccessStatusCode){
+            System.Console.WriteLine("Success");
             data = await response.Content.ReadAsStringAsync();
             weatherData = JsonConvert.DeserializeObject<WeatherData>(data);
         }

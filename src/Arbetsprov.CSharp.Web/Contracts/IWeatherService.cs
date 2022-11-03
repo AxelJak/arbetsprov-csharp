@@ -7,6 +7,6 @@ namespace Arbetsprov.CSharp.Web.Contracts
 {
     public interface IWeatherService
     {
-        Task<WeatherData> GetWeatherDataAsync(double latitude, double longitude, CancellationToken cancellationToken);
+        Task<WeatherData> GetWeatherDataAsync(string latitude, string longitude, CancellationToken cancellationToken);
     }
 }
